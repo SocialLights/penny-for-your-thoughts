@@ -1,0 +1,9 @@
+<%= form_tag(posts_path, method: "post") do %>
+    <%= label_tag('post[text]', "Submit a Memory") %>
+    <%= text_field_tag('post[text]') %>
+    <%= submit_tag("Submit") %>
+<% end %>
+
+<% @posts.each do |post| %>
+    <p><%= post.text %></p>
+<% end %>
