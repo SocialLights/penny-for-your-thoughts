@@ -4,6 +4,12 @@
     <%= submit_tag("Submit") %>
 <% end %>
 
+<%= form_tag(posts_unlock_path, method: "post") do %>
+    <%= label_tag('number_to_unlock', "Number of posts to unlock") %>
+    <%= text_field_tag('number_to_unlock') %>
+    <%= submit_tag("Submit") %>
+<% end %>
+
 <section id="post-feed">
   <% @posts.each do |post| %>
     <div class="post <%= post.class_name %>">
