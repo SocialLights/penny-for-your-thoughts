@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @post_presenter ||= post_presenter
   end
 
   def create
@@ -13,6 +13,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def post_presenter
+    PostPresenter.new
+  end
 
   def post_params
     params.require(:post).permit(:text)
