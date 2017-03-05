@@ -10,8 +10,11 @@
     <%= submit_tag("Submit") %>
 <% end %>
 
+<p><%= @post_presenter.unlocked_post_count %> posts have been unlocked.</p>
+<p><%= @post_presenter.locked_post_count %> posts are waiting to be unlocked.</p>
+
 <section id="post-feed">
-  <% @posts.each do |post| %>
+  <% @post_presenter.all_posts.each do |post| %>
     <div class="post <%= post.class_name %>">
       <% if post.is_locked %>
         <div class="post__text"><i class="fa fa-lock"></i> This post is locked. <a href="#">Make a donation</a> to unlock it!</div> 
