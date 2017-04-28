@@ -1,0 +1,10 @@
+<div class="post <%= post.class_name %>">
+  <% if post.is_locked %>
+    <div class="post__text"><i class="fa fa-lock"></i> This post is locked. <a href="#">Make a donation</a> to unlock it!</div> 
+  <% else %>
+    <div class="post__text"><%= post.text %></div>
+  <% end %>
+  <div class="post__date">
+    <%= post.created_at.strftime("Posted on %B %d, %Y") %></p>
+  </div>
+</div>

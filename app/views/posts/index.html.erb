@@ -1,4 +1,4 @@
-<%= form_tag(posts_path, method: "post") do %>
+<%= form_tag(posts_path, method: "post", remote: true) do %>
     <%= label_tag('post[text]', "Submit a Memory") %>
     <%= text_field_tag('post[text]') %>
     <%= submit_tag("Submit") %>
@@ -10,21 +10,8 @@
     <%= submit_tag("Submit") %>
 <% end %>
 
-<p><%= @post_presenter.unlocked_post_count %> posts have been unlocked.</p>
-<p><%= @post_presenter.locked_post_count %> posts are waiting to be unlocked.</p>
-
-<section id="post-feed">
-  <% @post_presenter.all_posts.each do |post| %>
-    <div class="post <%= post.class_name %>">
-      <% if post.is_locked %>
-        <div class="post__text"><i class="fa fa-lock"></i> This post is locked. <a href="#">Make a donation</a> to unlock it!</div> 
-      <% else %>
-        <div class="post__text"><%= post.text %></div>
-      <% end %>
-      <div class="post__date">
-        <%= post.created_at.strftime("Posted on %B %d, %Y") %></p>
-      </div>
-    </div>
-  <% end %>
+<section id="post-presenter">
+  <%= render partial: 'post_presenter', locals: { post_presenter: @post_presenter } %>
 </section>
+
 

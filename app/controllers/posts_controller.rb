@@ -4,7 +4,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create!(post_params)
+    @post = Post.create!(post_params)
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to root_path }
+        format.js
+      else
+        format.html { redirect_to root_path }
+      end
+    end
   end
 
   def unlock
