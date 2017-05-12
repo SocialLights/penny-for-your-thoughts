@@ -10,9 +10,14 @@
 
   <body>
     <div class="container">
+      <nav>
+        <%= render partial: 'auth/links' %>
+      </nav>
       <header>
         <h1>A penny for your thoughts...</h1>
       </header>
+      <%= notice %>
+      <%= alert %>
       <%= yield %>
     </div>
   </body>

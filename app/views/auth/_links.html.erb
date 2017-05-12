@@ -1,0 +1,22 @@
+<div>
+  <% if user_signed_in? %>
+    <div>Signed in as <%= current_user.email %></div>
+    <ul>
+      <li>
+        <%= link_to 'Account', edit_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </li>
+    </ul>
+  <% else %>
+    <ul>
+      <li>
+        <%= link_to 'Login', new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to 'Sign up', new_user_registration_path %>
+      </li>
+    </ul>
+  <% end %>
+</div>
