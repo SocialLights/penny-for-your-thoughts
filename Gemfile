@@ -16,6 +16,7 @@ gem 'jquery-rails', '~> 4.2', '>= 4.2.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'font-awesome-sass'
+gem 'money-rails', '~>1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'

@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203201758) do
+ActiveRecord::Schema.define(version: 20170520182335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.text     "text",                      null: false
-    t.boolean  "is_locked",  default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "text",                           null: false
+    t.boolean  "is_locked",      default: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "price_cents",    default: 99,    null: false
+    t.string   "price_currency", default: "USD", null: false
   end
 
 end
