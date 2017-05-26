@@ -1,6 +1,8 @@
 <%= form_tag(posts_path, method: "post", remote: true) do %>
     <%= label_tag('post[text]', "Submit a Memory") %>
     <%= text_field_tag('post[text]') %>
+    <%= label_tag('post[price_cents]', "Submit a Memory") %>
+    <%= select_tag('post[price_cents]', "<option>0.99</option><option>4.99</option><option>99.99</option>".html_safe) %>
     <%= submit_tag("Submit") %>
 <% end %>
 
