@@ -4,13 +4,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
+    permitted_post_params = post_params
+    permitted_post_params[:price_cents] = (100 * permitted_post_params[:price_cents].to_r).to_i
+    @post = Post.create!(permitted_post_params)
     respond_to do |format|
       if @post.save
-        format.html { redirect_to root_path }
+        format.html {redirect_to root_path}
         format.js
       else
-        format.html { redirect_to root_path }
+        format.html {redirect_to root_path}
       end
     end
   end
@@ -27,6 +29,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:text)
+    @post_params ||= params.require(:post).permit(:text, :price_cents)
   end
 end

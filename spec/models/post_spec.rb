@@ -53,4 +53,10 @@ describe Post do
       expect(post_3.reload.is_locked?).to eq false
     end
   end
+
+  context '#price' do
+    it 'should be a Money object' do
+      is_expected.to monetize(:price)
+    end
+  end
 end

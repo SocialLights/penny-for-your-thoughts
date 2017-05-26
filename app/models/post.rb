@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
 
-  scope :locked, -> (number_of_posts) { where(is_locked: true).order(:created_at).first(number_of_posts) }
+  monetize :price_cents
+
+  scope :locked, -> (number_of_posts) {where(is_locked: true).order(:created_at).first(number_of_posts)}
 
   def class_name
     self.is_locked ? "locked" : "unlocked"

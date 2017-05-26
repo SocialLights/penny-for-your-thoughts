@@ -1,6 +1,6 @@
 <div class="post <%= post.class_name %>">
   <% if post.is_locked %>
-    <div class="post__text"><i class="fa fa-lock"></i> This post is locked. <a href="#">Make a donation</a> to unlock it!</div> 
+    <div class="post__text"><i class="fa fa-lock"></i> This post is locked. For <%= humanized_money_with_symbol(post.price) %> you can <a href="#">make a donation</a> to unlock it!</div>
   <% else %>
     <div class="post__text"><%= post.text %></div>
   <% end %>
